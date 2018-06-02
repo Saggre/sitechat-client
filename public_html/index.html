@@ -6,11 +6,45 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Chatbot testi</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript" language="javascript">
+
+            //for debug
+            var script_location = "http://localhost:8383/sitechat-client/js/sitechat.js";
+            /**
+             * 
+             * @param {type} c document
+             * @param {type} h script string for tag name
+             * @param {type} a id string for element
+             * @param {type} t username
+             * @param {type} b actual script
+             * @param {type} o created element
+             * @param {type} i found script elements
+             * @returns {undefined}
+             */
+            (function (c, h, a, t, b, o, i) {
+                i = c.getElementsByTagName(h)[0];
+                if (c.getElementById(a)) {
+                    return;
+                }
+
+                o = c.createElement(h);
+                o.id = a;
+                o.async = 1;
+                //set user attribute
+                o.setAttribute("data-t", t);
+                //Set the script src
+                o.src = script_location + "";
+                //Insert the element
+                i.parentNode.insertBefore(o, i);
+
+            }(document, "script", "sitechat-sdk", "username"));
+        </script>
     </head>
     <body>
-        <div>TODO write content</div>
+
     </body>
 </html>
