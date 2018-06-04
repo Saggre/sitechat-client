@@ -10,8 +10,13 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script type="text/javascript" language="javascript">
+        <script>
 
+            window.chatSettings = {
+                app_id: 'APP_ID',
+                name: "Sakri Koskimies",
+                email: "customer@example.com"
+            };
             /**
              * 
              * @param {type} c document
@@ -23,23 +28,25 @@ and open the template in the editor.
              * @param {type} i found script elements
              * @returns {undefined}
              */
-            (function (c, h, a, t, b, o, i) {
-                i = c.getElementsByTagName(h)[0];
-                if (c.getElementById(a)) {
+            (function (d, id) {
+
+                //Creating script
+                var i = d.getElementsByTagName("script")[0];
+                if (d.getElementById(id + "-script")) {
                     return;
                 }
 
-                o = c.createElement(h);
-                o.id = a;
-                o.async = 1;
+                var sc = d.createElement("script");
+                sc.id = id + "-script";
+                sc.async = 1;
                 //set user attribute
-                o.setAttribute("data-t", t);
+                sc.setAttribute("data-u", chatSettings.name);
                 //Set the script src
-                o.src = "http://localhost:1337/v1/ui/loader";
+                sc.src = "http://localhost:1337/v1/client/" + id + "/loader";
                 //Insert the element
-                i.parentNode.insertBefore(o, i);
+                i.parentNode.insertBefore(sc, i);
 
-            }(document, "script", "sitechat-sdk", "username"));
+            })(document, chatSettings.app_id);
         </script>
     </head>
     <body>
