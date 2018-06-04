@@ -12,8 +12,6 @@ and open the template in the editor.
 
         <script type="text/javascript" language="javascript">
 
-            //for debug
-            var script_location = "http://localhost:8383/sitechat-client/js/sitechat-loader.js";
             /**
              * 
              * @param {type} c document
@@ -37,7 +35,7 @@ and open the template in the editor.
                 //set user attribute
                 o.setAttribute("data-t", t);
                 //Set the script src
-                o.src = script_location + "";
+                o.src = "http://localhost:1337/v1/ui/loader";
                 //Insert the element
                 i.parentNode.insertBefore(o, i);
 
